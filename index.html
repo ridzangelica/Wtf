@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Mohammad Ridwan Prasetyo | TKJ Class 11</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-base: #0a0c10;
+            --bg-surface: #12161f;
+            --bg-card: rgba(22, 28, 39, 0.75);
+            --border-glow: rgba(0, 242, 254, 0.25);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            
+            --cyan-accent: #00f2fe;
+            --blue-accent: #4facfe;
+            --purple-accent: #7f00ff;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-code: 'Fira Code', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(127, 0, 255, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 242, 254, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--cyan-accent);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-code);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cyan-accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan-accent);
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem 2rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: var(--cyan-accent);
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--cyan-accent), var(--blue-accent), var(--purple-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan-accent), var(--blue-accent));
+            color: #000;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan-accent);
+        }
+
+        .code-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .code-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+
+        .code-content .keyword { color: #ff79c6; }
+        .code-content .string { color: #f1fa8c; }
+        .code-content .variable { color: #8be9fd; }
+        .code-content .comment { color: #6272a4; }
+
+        /* Sections General */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--cyan-accent);
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card:hover {
+            border-color: var(--cyan-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--cyan-accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--border-subtle);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 2rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--cyan-accent);
+            box-shadow: 0 0 10px var(--cyan-accent);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .timeline-date {
+            color: var(--cyan-accent);
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--bg-surface);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+            }
+            .timeline-dot, .timeline-item:nth-child(even) .timeline-dot {
+                left: 12px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid font-awesome-logo-full"></i>
+                &lt;RIDWAN.TKJ /&gt;
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#education">Pendidikan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fa-solid fa-circle" style="font-size: 0.5rem; color: #27c93f;"></i>
+                    Siswa SMK Kelas 11 - TKJ
+                </div>
+                <h1>Halo, Saya <br><span class="gradient-text">Mohammad Ridwan</span></h1>
+                <p>Siswa Teknik Komputer dan Jaringan yang memiliki minat tinggi dalam Administrasi Sistem Linux, Pemrograman Shell Script, serta Optimasi Perangkat Android.</p>
+                <div class="hero-buttons">
+                    <a href="#skills" class="btn btn-primary">Lihat Keahlian <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#education" class="btn btn-secondary">Riwayat Sekolah</a>
+                </div>
+            </div>
+            
+            <div class="code-box">
+                <div class="code-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <span class="code-title">sysinfo.sh</span>
+                </div>
+                <pre class="code-content"><code><span class="comment"># Informasi Profil Siswa TKJ</span>
+<span class="variable">NAMA</span>=<span class="string">"Mohammad Ridwan Prasetyo"</span>
+<span class="variable">SEKOLAH</span>=<span class="string">"SMKI Assalam Jambewangi"</span>
+<span class="variable">KELAS</span>=<span class="string">"11 TKJ"</span>
+<span class="variable">TAHUN_MASUK</span>=<span class="string">"2025"</span>
+
+<span class="keyword">echo</span> <span class="string">"Status System: ACTIVE"</span>
+<span class="keyword">echo</span> <span class="string">"Fokus: SysAdmin & Custom OS"</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-subtitle">Kompetensi Utama</span>
+            <h2 class="section-title">Keahlian & Minat Teknik</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-brands fa-linux skill-icon"></i>
+                <h3 class="skill-title">Linux System Admin</h3>
+                <p class="skill-desc">Pengelolaan server berbasis Debian/Ubuntu via command line (CLI), manajemen user, dan konfigurasi permission.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-mobile-screen skill-icon"></i>
+                <h3 class="skill-title">Android OS Customization</h3>
+                <p class="skill-desc">Pengujian Custom ROM, flashing firmware, optimasi kernel, dan modifikasi sistem tingkat lanjut.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-terminal skill-icon"></i>
+                <h3 class="skill-title">BASH & Shell Scripting</h3>
+                <p class="skill-desc">Otomatisasi tugas-tugas dasar server dan ekosistem Termux menggunakan skrip Bash.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-network-wired skill-icon"></i>
+                <h3 class="skill-title">Dasar Jaringan & Subnetting</h3>
+                <p class="skill-desc">Pemahaman konsep OSI Layer, perancangan Subnetting (VLSM), serta pengkabelan LAN (UTP/STP).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header">
+            <span class="section-subtitle">Jejak Pendidikan</span>
+            <h2 class="section-title">Riwayat Sekolah</h2>
+        </div>
+        <div class="timeline">
+            <!-- TK -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2014 - 2016</div>
+                    <h3>TK Alhidayah Jambewangi</h3>
+                    <p style="color: var(--cyan-accent); font-size: 0.9rem;">Taman Kanak-Kanak</p>
+                </div>
+            </div>
+            <!-- MI -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2016 - 2022</div>
+                    <h3>MI Al Falah Jatitengah</h3>
+                    <p style="color: var(--cyan-accent); font-size: 0.9rem;">Madrasah Ibtidaiyah / Sekolah Dasar</p>
+                </div>
+            </div>
+            <!-- SMP -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2022 - 2025</div>
+                    <h3>SMPI Miftahul Ulum Jatikeplek</h3>
+                    <p style="color: var(--cyan-accent); font-size: 0.9rem;">Sekolah Menengah Pertama</p>
+                </div>
+            </div>
+            <!-- SMK -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2025 - Sekarang</div>
+                    <h3>SMKI Assalam Jambewangi</h3>
+                    <p style="color: var(--cyan-accent); font-size: 0.9rem;">Teknik Komputer dan Jaringan (TKJ)</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Saat ini duduk di kelas 11, berfokus mempelajari infrastruktur jaringan, server Linux, dan pengoperasian perangkat keras komputer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                &lt;RIDWAN.TKJ /&gt;
+            </div>
+            <p class="copyright">&copy; Mohammad Ridwan Prasetyo - SMKI Assalam Jambewangi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
